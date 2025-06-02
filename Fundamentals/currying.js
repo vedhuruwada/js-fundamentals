@@ -9,7 +9,7 @@ const f = (a) => {
 function curry(func) {
     return function curried(...args) {
         if (args.length >= func.length) {
-            return curry(...args);
+            return func(...args);
         } else {
             return function(...next) {
                 return curried(...args, ...next);
