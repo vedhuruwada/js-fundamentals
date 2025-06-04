@@ -17,7 +17,7 @@ export const renderSkeletons = (container, count=5) => {
     }
 };
 
-export const userModal = (user) => {
+export const renderUserModal = (user) => {
     return `
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
