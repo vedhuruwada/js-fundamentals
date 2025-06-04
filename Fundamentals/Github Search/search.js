@@ -25,7 +25,6 @@ async function fetchUsers(append = false) {
     try {
         const res = await fetch(`https://api.github.com/search/users?q=${encodeURIComponent(currentQuery)}&page=${currentPage}&per_page=10`);
         const data = await res.json();
-        console.log('data', data);
         if (!append) resultsDiv.innerHTML = "";
         data.items.forEach((user) => {
             const userDiv = document.createElement('div');
