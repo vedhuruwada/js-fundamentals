@@ -26,7 +26,7 @@ async function fetchUsers(append = false) {
         const res = await fetch(`https://api.github.com/search/users?q=${encodeURIComponent(currentQuery)}&page=${currentPage}&per_page=10`);
         const data = await res.json();
         if (!append) resultsDiv.innerHTML = "";
-        data.items.forEach((user) => {
+        data.items?.forEach((user) => {
             const userDiv = document.createElement('div');
             userDiv.innerHTML = `
                 <img src=${user.avatar_url} width="50" height="50" />
