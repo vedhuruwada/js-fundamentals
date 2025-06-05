@@ -1,4 +1,4 @@
-import { searchUsers, getUserList } from "./api";
+import { searchUsers, getUserDetails } from "./api";
 import { createUserCard, renderSkeletons, renderUserModal } from "./dom";
 import { getCachedUser, setCachedUser } from "./cache";
 import { handleRouting } from "./router";

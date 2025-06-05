@@ -7,7 +7,7 @@ export const searchUsers = async (query, page = 1) => {
     return data;
 }
 
-export const getUserList = async (userName) => {
+export const getUserDetails = async (userName) => {
     const res = await fetch(`${BASE_URL}/users/${userName}`);
     if (!res) throw new Error("Failed to fetch user list");
     return await res.json();
