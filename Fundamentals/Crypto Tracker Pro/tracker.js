@@ -7,7 +7,7 @@ const fetchCoins = async () => {
 }
 
 const renderCoins = (coins) => {
-    const coinsUl = document.getElementById('coinList');
+    const coinsUl = document.getElementById('coinsList');
     coins.forEach((coin) => {
         const coinLi = document.createElement('li');
         coinLi.innerHTML = `
@@ -16,6 +16,7 @@ const renderCoins = (coins) => {
         `
         coinsUl.appendChild(coinLi)
     });
+    return coinsUl;
 };
 
 const showDetails = (id) => {
@@ -31,3 +32,17 @@ const showDetails = (id) => {
 
 fetchCoins();
 
+// Add debounce to search coin
+let debounceTimer;
+document.getElementById('search').addEventListener('input', e => {
+  clearTimeout(debounceTimer);
+  details.innerHTML = "";
+  debounceTimer = setTimeout(() => {
+    const term = e.target.value.toLowerCase();
+    const filtered = coins.filter(c => 
+      c.name.toLowerCase().includes(term) || c.symbol.toLowerCase().includes(term)
+    );
+    console.log(filtered);
+    renderCoins(filtered);
+  }, 300);
+});
