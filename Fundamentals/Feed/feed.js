@@ -16,12 +16,12 @@ const getPosts = async (offset, limit = 10) => {
 const renderPosts = (posts) => {
     const frag = document.createDocumentFragment();
     posts.forEach((post) => {
-        const div = document.createElement("div");
-        div.className = "post";
-        div.innerHTML = `<h4>${post.title}</h4>
+        const postDiv = document.createElement("div");
+        postDiv.className = "post";
+        postDiv.innerHTML = `<h4>${post.title}</h4>
             <p>${post.body}</p>    
         `;
-        frag.appendChild("div");
+        frag.appendChild(postDiv);
     });
     feed.appendChild(frag);
 }
@@ -43,3 +43,10 @@ const loadMorePosts = async () => {
     loadingInProgress = false;
 }
 
+window.addEventListener("scroll", () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+        loadMorePosts();
+    }
+});
+
+loadMorePosts();
