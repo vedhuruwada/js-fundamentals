@@ -1,29 +1,15 @@
 <html>
     <head>
         <title>Your Feed</title>
-        <style>
-            body {
-                margin: 0;
-                background: #f8f9fa
-            }
-            .feed-container {
-                width: 600px;
-                margin: 2rem auto;
-                background: white;
-                padding: 1rem;
-            }
-            .post {
-                padding: 1rem;
-                border-bottom: 1px solid #eee;
-            }
-            .loading {
-                text-align: center;
-                color: #555;
-                padding: 1rem;
-            }
-        </style>
+        <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
+        <form id="postForm">
+            <input type="text" name="title" placeholder="Title" required />
+            <textarea name="body" placeholder="Add body" required></textarea>
+            <button type="submit">Add Post</button>
+        </form>
+        <button id="toggleTheme">Toggle Theme</button>
         <div class="feed-container" id="feed"></div>
         <div class="loading" id="loading">Loading More Posts...</div>
         <script src="feed.js"></script>
